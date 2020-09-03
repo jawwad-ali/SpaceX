@@ -2,7 +2,6 @@
     height: 100vh;
     overflow: hidden auto;
     background-color: #ececec;
-    width: 300px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -18,4 +17,19 @@
     padding-bottom: 20px;
     border-top: 1px solid #919191;
     cursor: pointer;
+}
+
+.LaunchList__item:hover {
+    color: #0076db;
+}
+
+.missionheading {
+    font-size: 25px;
+    color: #25353f;
+}
+
+@media only screen and (max-width:600px) {
+    .LaunchList {
+        width: 100%;
+    }
 }

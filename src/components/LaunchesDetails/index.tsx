@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useLaunchProfileQuery } from "./../../generated/graphql"
 import { DisplayLaunchDetails } from "./DisplayLaunchDetails"
-interface OwnProps{
+interface OwnProps {
     id: number
 }
-export const LaunchDetailsContainer = ({id}:OwnProps) => {
-    const { loading, error, data,refetch } = useLaunchProfileQuery({ variables: { id: String(id) } })
-    React.useEffect(() => {
+export const LaunchDetailsContainer = ({ id }: OwnProps) => {
+    const { loading, error, data, refetch } = useLaunchProfileQuery({ variables: { id: String(id) } })
+    useEffect(() => {
         refetch();
-      }, [id]);
+    }, [id]);
     if (loading)
         return <h4>Loading</h4>
 
@@ -16,7 +16,7 @@ export const LaunchDetailsContainer = ({id}:OwnProps) => {
         return <h4>Error</h4>
 
     if (data) {
-        console.log(data)
+        // console.log(data)
     }
     return (
         <div>

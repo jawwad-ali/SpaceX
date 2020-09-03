@@ -3,7 +3,7 @@ import gql from "graphql-tag"
 export const LaunchProfile = gql`
 query LaunchProfile($id: String!) {
     launch(id: $id) {
-      id
+      flight_number
       mission_name
       launch_year
       launch_success
@@ -17,7 +17,7 @@ query LaunchProfile($id: String!) {
       }
       links {
         flickr_images
-        video_link
+        article_link
       }
     }
   }

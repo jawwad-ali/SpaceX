@@ -1,19 +1,22 @@
 .LaunchProfile {
     height: 100vh;
     max-height: 100%;
-    width: calc(100vw - 300px);
-    overflow: hidden auto;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .LaunchProfile__status {
     margin-top: 40px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
 }
 
 .LaunchProfile__title {
     margin-top: 0;
     margin-bottom: 4px;
+    font-size: 65px;
+    color: #25353f;
+    font-weight: 300;
 }
 
 .LaunchProfile__success {
@@ -32,6 +35,90 @@
     padding-bottom: 100px;
 }
 
+.LaunchProfile__description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+
 .LaunchProfile__image {
-    width: 100%;
+    width: 50%;
+    height: 200px;
+}
+
+li {
+    list-style: none;
+}
+
+.rocketName-Type {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.rocketName-Type li {
+    color: #3f20ba;
+}
+
+.RcType {
+    margin-left: 150px;
+    font-size: 18px;
+}
+
+.missionStatus {
+    margin-left: 210px;
+}
+
+@media only screen and (max-width:600px) {
+    .LaunchProfile {
+        width: 100%;
+    }
+
+    .LaunchProfile__title {
+        font-size: 45px;
+    }
+
+    .rocketName-Type {
+        display: flex;
+        flex-direction: column;
+        margin-left: -25px;
+        margin-top: 15px;
+    }
+
+    .missionStatus {
+        margin-left: 0px;
+        margin-top: 5px;
+    }
+
+    .RcType {
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+
+    .LaunchProfile__image {
+        height: 150px;
+        width: 150px;
+    }
+
+    .notfound {
+        background: #000;
+    }
+}
+
+@media only screen and (min-width:768px) {
+
+    .missionStatus,
+    .RcType {
+        margin-left: 55px;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .missionStatus {
+        margin-left: 150px;
+    }
+
+    .RcType {
+        margin-left: 210px;
+    }
 }

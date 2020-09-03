@@ -740,7 +740,7 @@ export type LaunchesInfoQuery = (
   { __typename?: 'Query' }
   & { launches?: Maybe<Array<Maybe<(
     { __typename?: 'Launch' }
-    & Pick<Launch, 'mission_id' | 'mission_name' | 'launch_success' | 'launch_year'>
+    & Pick<Launch, 'flight_number' | 'mission_name' | 'launch_success' | 'launch_year'>
   )>>> }
 );
 
@@ -753,7 +753,7 @@ export type LaunchProfileQuery = (
   { __typename?: 'Query' }
   & { launch?: Maybe<(
     { __typename?: 'Launch' }
-    & Pick<Launch, 'mission_name' | 'launch_year' | 'launch_success' | 'details'>
+    & Pick<Launch, 'flight_number' | 'mission_name' | 'launch_year' | 'launch_success' | 'details'>
     & { launch_site?: Maybe<(
       { __typename?: 'LaunchSite' }
       & Pick<LaunchSite, 'site_name'>
@@ -762,7 +762,7 @@ export type LaunchProfileQuery = (
       & Pick<LaunchRocket, 'rocket_name' | 'rocket_type'>
     )>, links?: Maybe<(
       { __typename?: 'LaunchLinks' }
-      & Pick<LaunchLinks, 'flickr_images'>
+      & Pick<LaunchLinks, 'flickr_images' | 'article_link'>
     )> }
   )> }
 );
@@ -771,7 +771,7 @@ export type LaunchProfileQuery = (
 export const LaunchesInfoDocument = gql`
     query LaunchesInfo {
   launches {
-    mission_id
+    flight_number
     mission_name
     launch_success
     launch_year
@@ -806,6 +806,7 @@ export type LaunchesInfoQueryResult = Apollo.QueryResult<LaunchesInfoQuery, Laun
 export const LaunchProfileDocument = gql`
     query LaunchProfile($id: String!) {
   launch(id: $id) {
+    flight_number
     mission_name
     launch_year
     launch_success
@@ -819,6 +820,7 @@ export const LaunchProfileDocument = gql`
     }
     links {
       flickr_images
+      article_link
     }
   }
 }

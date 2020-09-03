@@ -8,11 +8,10 @@ export interface OwnProps {
 interface Props extends OwnProps {
     data: LaunchesInfoQuery
 }
-const className = 'LaunchList';
-
 export const DisplayMission: React.FC<Props> = ({ data, handleIdChange }) => {
     return (
         <div className="LaunchList ">
+            <h1 className="missionheading">Missions</h1>
             <ul className="LaunchList__list ">
                 {
                     data.launches?.map((launchObj, ind) => {
@@ -20,7 +19,7 @@ export const DisplayMission: React.FC<Props> = ({ data, handleIdChange }) => {
                             <li
                                 className="LaunchList__item"
                                 key={ind}
-                                // onClick={() =>  handleIdChange(launchObj.flight_number!)}
+                                onClick={() => handleIdChange(launchObj?.flight_number!)}
                             >
                                 {launchObj?.mission_name}
 
@@ -29,6 +28,6 @@ export const DisplayMission: React.FC<Props> = ({ data, handleIdChange }) => {
                 }
             </ul>
         </div>
-        
+
     )
 }
